@@ -60,23 +60,6 @@ export const api = {
 };
 // END API ---------------------------------------------------------------------------------------
 
-// BROWSER-SUBMITTED NEWSLETTER ------------------------------------------------------------------
-export function newsletterSignup(req, res) {
-    res.render('newsletter-signup', { csrf: 'CSRF token goes here' });
-}
-
-export function newsletterSignupProcess(req, res) {
-    console.log('CSRF token:', req.body._csrf);
-    console.log('Name:', req.body.name);
-    console.log('Email:', req.body.email);
-    res.redirect(303, '/newsletter-signup/thank-you');
-}
-
-export function newsletterSignupThankYou(req, res) {
-    res.render('newsletter-signup-thank-you');
-}
-// END BROWSER-SUBMITTED NEWSLETTER --------------------------------------------------------------
-
 // FETCH NEWSLETTER ------------------------------------------------------------------------------
 export function newsletter(req, res) {
     res.render('newsletter', { csrf: 'CSRF token goes here' });
@@ -96,11 +79,8 @@ export function serverError(err, req, res) {
 export default {
     home,
     about,
-    newsletterSignup,
     notFound,
     serverError,
-    newsletterSignupProcess,
-    newsletterSignupThankYou,
     newsletter,
     api,
     setupPhotoContest
